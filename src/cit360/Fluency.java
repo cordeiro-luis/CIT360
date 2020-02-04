@@ -23,7 +23,11 @@ public class Fluency {
         //cit360.threads.Sample.testThreads();
                 
         //JSON
-        cit360.json.Sample.testJson();
+        //cit360.json.Sample.testURLHttp();
+        
+        //URL & HTTP
+        cit360.urlHttp.Sample.testURLHttp();
+               
     }
        
 }
