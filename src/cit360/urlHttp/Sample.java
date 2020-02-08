@@ -5,11 +5,8 @@
 package cit360.urlHttp;
 
 import com.google.gson.Gson;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
@@ -67,13 +64,14 @@ public class Sample {
             connection.connect();
                         
             //just for fun, let's see the actual HTTP received headers.
-            for (Map.Entry<String,List<String>> k : connection.getHeaderFields().entrySet()) {
-                 for(String v :  k.getValue()){
-                     String key = k.getKey(); 
-                     if (key==null) {key="";} else {key=key+":";}
-                        System.out.println(key+ v);
-                 }
-            }
+            //This "functional" operations notation is new to me. Interesting stuff.
+            connection.getHeaderFields().entrySet().stream().forEach((k) -> {
+                k.getValue().stream().forEach((v) -> {
+                    String key = k.getKey();
+                    if (key==null) {key="";} else {key=key+":";}
+                    System.out.println(key+ v);
+                });
+            });
                        
             //get the payload size
             int length = connection.getContentLength();
