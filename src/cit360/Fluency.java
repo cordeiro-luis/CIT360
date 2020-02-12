@@ -26,8 +26,11 @@ public class Fluency {
         //cit360.json.Sample.testURLHttp();
         
         //URL & HTTP
-        cit360.urlHttp.Sample.testURLHttp();
-               
+        //cit360.urlHttp.Sample.testURLHttp();
+        
+        //mvc
+        cit360.mvc.Sample.startSample();
+       
     }
        
 }
