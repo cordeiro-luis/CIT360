@@ -65,7 +65,12 @@ public class MenuView {
             //I just used nextLine so the rest of the code worked. Scanner has this delimer
             //functionlity and a nextInt has a strange behavior if the next call on Scanner is
             //a nextLine()
-            inputValue = Integer.parseInt(keyboard.nextLine());
+            
+            try {
+                inputValue = Integer.parseInt(keyboard.nextLine());
+            } catch (NumberFormatException ex) {
+                inputValue = 0;
+            }
 
             if (inputValue < 1 || inputValue > _MAX_OPTION) {
                 System.out.format("\nError: input value must be between 1 and %d.", _MAX_OPTION);
